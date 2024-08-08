@@ -1,0 +1,108 @@
+@using Library.Models
+@model Library.Models.Constraint
+@{
+    ViewBag.Title = "Constraint aanmaken";
+}
+
+<div class="flex justify-center">
+    <div class="space-y-8 divide-y divide-gray-200 p-4 bg-white border rounded-lg">
+        <div class="space-y-6 sm:space-y-5">
+            <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 block">
+                    Constraint informatie (@Model.Id - @Model.Name)
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500 inline">
+                    Deze informatie kan ingezien worden door leden van de ...
+                </p>
+            </div>
+
+            <div class="space-y-6 sm:space-y-5">
+                <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Naam
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input asp-for="Name" type="text" id="name" name="name" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" disabled>
+                    </div>
+                </div>
+
+                <div class="w-full sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="description" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Beschrijving
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <textarea class="w-full h-48 appearance-none border rounded focus:outline-none" asp-for="Description" id="description" name="description" disabled></textarea>
+                    </div>
+                </div>
+
+                <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="type" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Type
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <select class="appearance-none block w-full px-3 px-4 h-12 bg-gray-200 text-gray-700 border rounded leading-tight focus:outline-none focus:bg-white" asp-for="Type" id="type" type="checkbox" disabled>
+                            <option value="@Model.Type">@Model.Type</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="value" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Waarde
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input asp-for="Value" type="text" id="value" name="value" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" disabled>
+                    </div>
+                </div>
+
+                <div class="w-full sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Gekoppelde modules </label>
+                    @if (@Model.ModuleConstraints.Count > 0)
+                    {
+                        <table class="w-full table-auto border text-center">
+                            <thead>
+                            <tr>
+                                <th>Module Id</th>
+                                <th>Module</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var module in @Model.ModuleConstraints)
+                            {
+                                <tr class="hover:bg-gray-200 hover:text-gray-400 cursor-pointer" onclick="openUrlWithId('/Module/Details/', @module.ModuleId);">
+                                    <td>@module.ModuleId</td>
+                                    <td>@module.Module.Name</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <span>Niet gekoppeld aan modules</span>
+                    }
+                </div>
+            </div>
+
+            <div class="pt-5">
+                <div class="flex justify-between">
+                    <div>
+                        <a asp-controller="Constraint" asp-action="Edit" asp-route-id="@Model.Id" class="ml-3 inline-flex py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Wijzigen
+                        </a>
+                    </div>
+                    @if (@Model.ModuleConstraints.Count <= 0)
+                    {
+                        <form asp-controller="Constraint" asp-action="Delete" asp-route-id="@Model.Id">
+                            @Html.AntiForgeryToken()
+
+                            <button type="submit" class="ml-3 inline-flex py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Verwijderen
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

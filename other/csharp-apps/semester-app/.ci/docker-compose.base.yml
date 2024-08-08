@@ -1,0 +1,18 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: studym8
+      POSTGRES_PASSWORD: studym8
+      POSTGRES_DB: studym8
+    volumes:
+      - "../../data/postgres:/var/lib/postgresql/data"
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"

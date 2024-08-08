@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Dialog1Of4.png" />
+    <None Remove="Images\Dialog2Of4.png" />
+    <None Remove="Images\Dialog3Of4.png" />
+    <None Remove="Images\Dialog4Of4.png" />
+    <None Remove="Images\home.png" />
+    <None Remove="Images\PitchPerfectLogo.png" />
+    <None Remove="Images\settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="NAudio" Version="1.10.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Dialog1Of4.png" />
+    <Resource Include="Images\Dialog2Of4.png" />
+    <Resource Include="Images\Dialog3Of4.png" />
+    <Resource Include="Images\Dialog4Of4.png" />
+    <Resource Include="Images\home.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PitchPerfectLogo.png" />
+    <Resource Include="Images\settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="PitchPerfectHearingTest.Dialogs.AppointmentSelectTimeDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:PitchPerfectHearingTest.Dialogs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Rectangle Grid.Column="0" Grid.RowSpan="1000" Grid.ColumnSpan="1000">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#74b9ff" Offset="0" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <ScrollViewer>
+        <StackPanel>
+                <Label  FontWeight="DemiBold" FontSize="20" Margin="0,20,0,0" Content="Kies een datum" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <DatePicker  FontWeight="DemiBold" Margin="10" Width="150" Height="25" ToolTip="Selecteer start datum" >
+                    <DatePicker.BlackoutDates>
+                        <CalendarDateRange Start="12/1/2020" End="12/14/2020"/>
+                        <CalendarDateRange Start="12/18/2020" End="12/31/2020"/>
+                    </DatePicker.BlackoutDates>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDateChanged">
+                        <i:CallMethodAction MethodName="OnSelectedDate" TargetObject="{Binding}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DatePicker>
+            <StackPanel x:Name="AvailableTimeSlots"  Width="250">
+                    <StackPanel Orientation="Vertical">
+                        <Label  FontWeight="Bold" HorizontalAlignment="center" Visibility="{Binding ShowLabelSelectTime}" Content="Selecteer een tijd op"/>
+                        <Label  FontWeight="Bold" HorizontalAlignment="Center"  Content="{Binding SelectedDateLabel}"/>
+                    </StackPanel>
+                    <ItemsControl ItemsSource="{Binding TimeSlots}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                            <Border Background="#74b9ff" Margin="0 0 0 10" CornerRadius="10" BorderThickness="0">
+                                <Button Padding="5" Background="#74b9ff" Foreground="White" BorderThickness="0" Cursor="Hand" Command="{Binding ElementName=AvailableTimeSlots, Path=DataContext.OpenAddContactInfoViewCommand}" CommandParameter="{Binding}">
+                                        <Grid HorizontalAlignment="Center">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="20"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock FontWeight="DemiBold"  Grid.Column="0"  Text="{Binding StartTime.Hour}" />
+                                            <TextBlock  FontWeight="DemiBold"  Grid.Column="1" Text=": " />
+                                            <TextBlock  FontWeight="DemiBold"  Grid.Column="2" Text="{Binding StartTime.Minute}" />
+                                            <TextBlock  FontWeight="DemiBold"  Grid.Column="3" Text="- " />
+                                            <TextBlock  FontWeight="DemiBold"  Grid.Column="4"  Text="{Binding EndTime.Hour}" />
+                                            <TextBlock  FontWeight="DemiBold"  Grid.Column="5" Text=": " />
+                                            <TextBlock  FontWeight="DemiBold"  Grid.Column="6" Text="{Binding EndTime.Minute}" />
+                                        </Grid>
+                                </Button>
+                            </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+                        </StackPanel>
+        </StackPanel>
+            </ScrollViewer>
+    </Grid>
+</UserControl>

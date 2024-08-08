@@ -1,0 +1,87 @@
+﻿@using Library.Models
+@model IEnumerable<Library.Models.Module>
+@{
+    ViewBag.Title = "Modules";
+}
+
+<a asp-controller="Module" asp-action="Create" class="hover:text-green-300">Module aanmaken</a>
+<input type="text" id="searchInput" onkeyup="searchBar()" placeholder="Zoek naar modules.."/>
+<div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table id="searchTable" class="min-w-full divide-y divide-gray-200">
+
+                    <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Naam
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Status
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Tonen
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Vervalt op
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="bg-white divide-y divide-gray-200">
+                    @if (Model != null)
+                    {
+                        @foreach (var m in Model)
+                        {
+                            var defaultColor = "text-gray-500";
+                            var statusText = defaultColor;
+                            switch (m.Status)
+                            {
+                                case ModuleStatus.Invalid:
+                                    statusText = "text-red-800 font-black";
+                                    break;
+                                case ModuleStatus.Checked:
+                                    statusText = "text-green-600";
+                                    break;
+                                case ModuleStatus.Draft:
+                                    statusText = "text-yellow-600";
+                                    break;
+                                default:
+                                    statusText = defaultColor;
+                                    break;
+                            }
+
+                            var expired = defaultColor;
+                            if (m.Expiration >= DateTime.Today && m.Expiration <= DateTime.Today.AddDays(14))
+                            {
+                                expired = "text-red-300 font-semibold";
+                            }
+
+                            if (m.Expiration < DateTime.Today)
+                            {
+                                expired = "text-red-500 font-black";
+                            }
+
+                            <tr class="cursor-pointer hover:bg-gray-100" onclick="openUrlWithId('/Module/Details/', @m.Id);">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    @m.Name
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm @statusText">
+                                    @m.Status
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    @m.Visible
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm @expired">
+                                    @m.Expiration.ToString("d")
+                                </td>
+                            </tr>
+                        }
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

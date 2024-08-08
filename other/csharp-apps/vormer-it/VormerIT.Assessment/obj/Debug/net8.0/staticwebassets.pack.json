@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/merdin/Development/code/portfolio/csharp-apps/vormer-it/VormerIT.Assessment/wwwroot/Files/CSS Flexbox.png",
+      "PackagePath": "staticwebassets/Files/CSS Flexbox.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.VormerIT.Assessment.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.VormerIT.Assessment.props",
+      "PackagePath": "build\\VormerIT.Assessment.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.VormerIT.Assessment.props",
+      "PackagePath": "buildMultiTargeting\\VormerIT.Assessment.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.VormerIT.Assessment.props",
+      "PackagePath": "buildTransitive\\VormerIT.Assessment.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,9 @@
+{
+    "editor.defaultFormatter": "ms-dotnettools.csdevkit",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "csharp.format.enable": true,
+    "[aspnetcorerazor]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    }
+}

@@ -1,0 +1,22 @@
+entryPoints:
+  http:
+    address: ":80"
+  https:
+    address: ":443"
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+  file:
+    filename: /traefik.tls.yml
+
+accessLog: {}
+
+certificatesResolvers:
+  http:
+    acme:
+      email: s1135549@student.windesheim.nl
+      storage: acme.json
+      httpChallenge:
+        entryPoint: http

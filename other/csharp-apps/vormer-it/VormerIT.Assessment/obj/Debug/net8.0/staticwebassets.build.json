@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "WJbfQtoRfxur71Wc6+sNcKQL2TvNKkMhJSiN8hgGBI8=",
+  "Source": "VormerIT.Assessment",
+  "BasePath": "_content/VormerIT.Assessment",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "VormerIT.Assessment/wwwroot",
+      "Source": "VormerIT.Assessment",
+      "ContentRoot": "/Users/merdin/Development/code/portfolio/csharp-apps/vormer-it/VormerIT.Assessment/wwwroot/",
+      "BasePath": "_content/VormerIT.Assessment",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/merdin/Development/code/portfolio/csharp-apps/vormer-it/VormerIT.Assessment/wwwroot/Files/CSS Flexbox.png",
+      "SourceId": "VormerIT.Assessment",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/merdin/Development/code/portfolio/csharp-apps/vormer-it/VormerIT.Assessment/wwwroot/",
+      "BasePath": "_content/VormerIT.Assessment",
+      "RelativePath": "Files/CSS Flexbox.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Files/CSS Flexbox.png"
+    }
+  ]
+}

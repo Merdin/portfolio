@@ -1,0 +1,5 @@
+C:\Users\merdin\Documents\Tentamen\API\DefaultAPI\obj\Debug\netcoreapp3.1\DefaultAPI.csprojAssemblyReference.cache
+C:\Users\merdin\Documents\Tentamen\API\DefaultAPI\obj\Debug\netcoreapp3.1\DefaultAPI.AssemblyInfoInputs.cache
+C:\Users\merdin\Documents\Tentamen\API\DefaultAPI\obj\Debug\netcoreapp3.1\DefaultAPI.AssemblyInfo.cs
+C:\Users\merdin\Documents\Tentamen\API\DefaultAPI\obj\Debug\netcoreapp3.1\DefaultAPI.csproj.CoreCompileInputs.cache
+C:\Users\merdin\Documents\Tentamen\API\DefaultAPI\obj\Debug\netcoreapp3.1\DefaultAPI.MvcApplicationPartsAssemblyInfo.cache

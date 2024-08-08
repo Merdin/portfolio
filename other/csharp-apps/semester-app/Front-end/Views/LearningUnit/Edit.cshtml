@@ -1,0 +1,71 @@
+@using Library.Models
+@model Library.Models.LearningUnit
+
+@{
+    var visible = Model.Visible ? "checked" : null;
+    var allModules = ViewBag.Modules as ICollection<Module>;
+    ViewBag.Title = "EVL wijzigen";
+}
+
+
+<a asp-action="Details" asp-route-id="@Model.Id" class="hover:text-indigo-600">Annuleren</a>
+<form asp-controller="LearningUnit" asp-action="Edit" class="w-full max-w-2xl px-10 py-10">
+    @Html.AntiForgeryToken()
+    <div class="flex gap-4">
+        <div class="w-11/12">
+            <div class="mb-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name"> Naam </label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" asp-for="Title" id="title" type="text" name="title" value="@Model.Title" placeholder="Semester naam"/>
+            </div>
+            <div class="mb-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="expiration"> Verloopdatum </label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none" asp-for="Expiration" id="expiration" type="date" value="@Model.Expiration" name="expiration"/>
+            </div>
+            <div class="mb-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="visible"> Tonen </label>
+                <input class="rounded" asp-for="Visible" id="visible" type="checkbox" name="visible" checked="@visible"/>
+            </div>
+            <div class="mb-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="status"> Type </label>
+                <select class="appearance-none block w-full h-12 py-3 px-4 bg-gray-200 text-gray-700 border rounded leading-tight focus:outline-none focus:bg-white" asp-for="Type" id="Type" type="checkbox">
+                    @foreach (var type in Enum.GetValues(typeof(UnitType)))
+                    {
+                        @if (@Model.Type == (UnitType) type)
+                        {
+                            <option value="@type" selected="selected">@type</option>
+                        }
+                        else
+                        {
+                            <option value="">@type</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div>
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="description"> Beschrijving </label>
+            <textarea class="appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" asp-for="Description" id="description" name="description" placeholder="Beschrijving"></textarea>
+        </div>
+    </div>
+    <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="modules"> Modules </label>
+        <select class="search-multi-select appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" asp-for="LearningUnitModules" id="modules" name="moduleIds" multiple>
+            @foreach (var module in allModules)
+            {
+                if (@Model.LearningUnitModules.Any(mc => mc.ModuleId == module.Id && mc.LearningUnitId == @Model.Id))
+                {
+                    <option value="@module.Id" selected="selected">@module.Name</option>
+                }
+                else
+                {
+                    <option value="@module.Id">@module.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="px-4 py-3 text-right sm:px-6">
+        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Bewerken
+        </button>
+    </div>
+</form>

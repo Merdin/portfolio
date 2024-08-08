@@ -1,0 +1,20 @@
+﻿PitchPerfectHearingTest
+1.0.0.0
+
+winexe
+C#
+.cs
+c:\Users\Dirk\OneDrive - Windesheim Office365\Data\Hogeschool\C#\Gehoortest\PitchPerfect\PitchPerfectHearingTest\obj\Debug\netcoreapp3.1\
+PitchPerfectHearingTest
+none
+false
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+c:\Users\Dirk\OneDrive - Windesheim Office365\Data\Hogeschool\C#\Gehoortest\PitchPerfect\PitchPerfectHearingTest\App.xaml
+29125142477
+
+1112101192141
+2232120026980
+Dialogs\DialogService\DialogWindow.xaml;Dialogs\DialogService\DialogWindowMain.xaml;Dialogs\DialogYesNo\DialogYesNoView.xaml;MainWindow.xaml;Views\AdminDashboard\AdminDashboardDataAnalyseView.xaml;Views\AdminDashboard\AdminDashboardLoginView.xaml;Views\AdminDashboard\AdminDashboardNavigationView.xaml;Views\AdminDashboard\AdminDashboardPasswordForgottenView.xaml;Views\AdminDashboard\AdminDashboardTimeslotLockView.xaml;Views\AdminDashboard\AdminDashboardTimeslotsView.xaml;Views\AdminDashboard\AdminDashboardView.xaml;Views\AdminDashboard\Dialogs\AdminAppointmentDialogView.xaml;Views\AdminDashboard\Dialogs\CustAppointmentDialogView.xaml;Views\HearingTest\AppointmentCustomerViews\AppointmentAddContactInfoView.xaml;Views\HearingTest\AppointmentCustomerViews\AppointmentDialog.xaml;Views\HearingTest\AppointmentCustomerViews\AppointmentSelectTimeDialog.xaml;Views\HearingTest\AppointmentCustomerViews\AppointmentSuccessView.xaml;Views\HearingTest\AppointmentCustomerViews\AudiogramDialog.xaml;Views\HearingTest\HearingTestCountDownView.xaml;Views\HearingTest\HearingTestInteractionView.xaml;Views\HearingTest\HearingTestIntroductionView.xaml;Views\HearingTest\HearingTestResultView.xaml;Views\HearingTest\HearingTestView.xaml;Views\Introduction\IntroductionDialog.xaml;Views\Introduction\IntroductionDialog1Of4.xaml;Views\Introduction\IntroductionDialog2Of4.xaml;Views\Introduction\IntroductionDialog3Of4.xaml;Views\Introduction\IntroductionDialog4Of4.xaml;Views\Introduction\IntroductionView.xaml;
+
+True
+

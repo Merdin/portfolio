@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>APISDK</id>
+    <version>1.0.0</version>
+    <authors>René Kluitenberg</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <copyright>© René Kluitenberg</copyright>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.7" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Http.Extensions" version="2.2.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Http.Features" version="3.1.13" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Http" version="3.1.13" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll" target="lib\netcoreapp3.1\APISDK.dll" />
+  </files>
+</package>

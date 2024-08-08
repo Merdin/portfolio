@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="PitchPerfectHearingTest.Views.HearingTest.HearingTestResultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="{Binding ResultIndication}" Margin="0,25,0,100" FontSize="25" Foreground="{Binding IndicationColour}" HorizontalAlignment="Center" />
+            <Button Width="Auto" Padding="5" MaxWidth="150" Content="Afspraak inplannen" Command="{Binding ShowAppointment}"/>
+            <Button Width="Auto" Padding="5" MaxWidth="150" Content="Toon audiogram" Command="{Binding ShowAudiogram}"/>
+            <Button Width="Auto" Padding="5" MaxWidth="150" Content="Terug naar het begin"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

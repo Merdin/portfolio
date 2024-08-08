@@ -1,0 +1,1 @@
+Opdracht: Een API met Swagger (UI) ondersteuning waarmee je (via Swagger) een Excel (XLSX)-bestand kunt uploaden. Deze API moet het bestand vervolgens dynamisch kunnen omzetten naar een objectstructuur waarbij de mappings tussen Excel en de objectstructuur simpel aan te passen moeten zijn (van kolom naar veld). Laat zien wat je kunt!

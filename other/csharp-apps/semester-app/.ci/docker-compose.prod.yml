@@ -1,0 +1,115 @@
+version: "3.1"
+
+services:
+  front-end:
+    build:
+      context: "../"
+      dockerfile: "./Front-end/Dockerfile"
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Production"
+    networks:
+      - proxy
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.studym8.entrypoints=http"
+      - "traefik.http.routers.studym8.rule=Host(`studym8.nl`)"
+      - "traefik.http.middlewares.studym8-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.studym8.middlewares=studym8-https-redirect"
+      - "traefik.http.routers.studym8-secure.entrypoints=https"
+      - "traefik.http.routers.studym8-secure.rule=Host(`studym8.nl`)"
+      - "traefik.http.routers.studym8-secure.tls=true"
+      - "traefik.http.routers.studym8-secure.tls.certresolver=http"
+      - "traefik.http.routers.studym8-secure.service=studym8"
+      - "traefik.http.middlewares.addHeaders.headers.customresponseheaders.Server=Windows NT 4.0 Server"
+      - "traefik.http.middlewares.addHeaders.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.addHeaders.headers.browserXssFilter=true"
+      - "traefik.http.middlewares.addHeaders.headers.frameDeny=true"
+      - "traefik.http.middlewares.addHeaders.headers.contentSecurityPolicy=default-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net"
+      - "traefik.http.middlewares.addHeaders.headers.referrerPolicy=no-referrer"
+      - "traefik.http.middlewares.addHeaders.headers.STSSeconds=31536000"
+      - "traefik.http.middlewares.addHeaders.headers.STSIncludeSubdomains=true"
+      - "traefik.http.middlewares.addHeaders.headers.STSPreload=true"
+      - "traefik.http.middlewares.addHeaders.headers.customresponseheaders.Permissions-Policy=accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+      - "traefik.http.routers.studym8-secure.middlewares=addHeaders"
+      - "traefik.http.services.studym8.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+
+  back-end:
+    build:
+      context: "../"
+      dockerfile: "./Back-end/Dockerfile"
+    networks:
+      - default
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Production"
+
+  traefik:
+    image: traefik:v2.4.8
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.yml:/traefik.yml:ro
+      - ./traefik/traefik.tls.yml:/traefik.tls.yml:ro
+      - ./traefik/acme.json:/acme.json
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:13.0.0
+    volumes:
+      - ./keycloak_themes/studym8:/opt/jboss/keycloak/themes/studym8
+    networks:
+      - proxy
+      - default
+    environment:
+      DB_VENDOR: mariadb
+      DB_ADDR: keycloakdb
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: r4KjrHkmfkRpiJU7
+      PROXY_ADDRESS_FORWARDING: "true"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.auth.entrypoints=http"
+      - "traefik.http.routers.auth.rule=Host(`auth.studym8.nl`)"
+      - "traefik.http.middlewares.auth-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.auth-auth.basicauth.users=auth:$$2y$$05$$VvSjyEoghrvQEP59LJ2j5uvb1QDY3eSFaI1MsJqHSfnSSsBHRx1WW"
+      - "traefik.http.routers.auth.middlewares=auth-https-redirect"
+      - "traefik.http.routers.auth-secure.entrypoints=https"
+      - "traefik.http.routers.auth-secure.rule=Host(`auth.studym8.nl`)"
+      - "traefik.http.routers.auth-secure.tls=true"
+      - "traefik.http.routers.auth-secure.tls.certresolver=http"
+      - "traefik.http.routers.auth-secure.service=auth"
+      - "traefik.http.services.auth.loadbalancer.server.port=8080"
+      - "traefik.docker.network=proxy"
+    depends_on:
+      - keycloakdb
+
+  keycloakdb:
+    image: mariadb
+    volumes:
+      - ../../data/keycloakdb:/var/lib/mysql
+    networks:
+      - default
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: keycloak
+    # Copy-pasted from https://github.com/docker-library/mariadb/issues/94
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
+
+networks:
+  proxy:
+    external: true
+  default:

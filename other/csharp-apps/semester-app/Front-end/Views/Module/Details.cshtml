@@ -1,0 +1,130 @@
+@model Library.Models.Module
+@{
+    ViewBag.Title = Model.Name;
+    var isVisible = Model.Visible ? "Verbergen" : "Weergeven";
+}
+
+<div class="flex justify-center">
+    <div class=" space-y-6 divide-y divide-gray-200 p-4 bg-white border rounded-lg">
+        <div class="space-y-6 sm:space-y-5">
+            <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 block">
+                    Module informatie (@Model.Id - @Model.Name)
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500 inline">
+                    Deze informatie kan ingezien worden door leden van de ...
+                </p>
+            </div>
+
+            <div class="space-y-6 sm:space-y-5">
+                <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Naam
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input asp-for="Name" type="text" id="name" name="name" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" disabled>
+                    </div>
+                </div>
+
+                <div class="w-full sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="description" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Beschrijving
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <textarea class="w-full h-80 appearance-none border rounded focus:outline-none" asp-for="Description" id="description" name="description"  disabled></textarea>
+                    </div>
+                </div>
+
+                <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="expiration" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Verloopdatum
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input asp-for="Expiration" type="date" id="expiration" name="expiration" autocomplete="expiration" class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" disabled required>
+                    </div>
+                </div>
+
+                <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="visible" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Tonen
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2 flex justify-between align-middle">
+                        <div>
+                            <input asp-for="Visible" type="checkbox" id="visible" name="visible" disabled>
+                        </div>
+
+                        @if (User.IsInRole("ModuleManager"))
+                        {
+                            <div>
+                                <form method="post" asp-controller="Module" asp-action="ToggleVisibility" asp-route-id="@Model.Id">
+                                    <button type="submit" class="hover:cursor-pointer hover:underline text-indigo-600">
+                                        @isVisible
+                                    </button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label for="status" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                        Status
+                    </label>
+                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input asp-for="Status" type="text" id="status" name="status" value="@Model.Status" class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md" disabled>
+                    </div>
+                </div>
+
+                <div class="w-full sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                    <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> Voorwaarden </label>
+                    @if (@Model.ModuleConstraints.Count > 0)
+                    {
+                        <table class="w-full table-auto border text-center">
+                            <thead>
+                            <tr>
+                                <th>Voorwaarde</th>
+                                <th>Type</th>
+                                <th>Waarde</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var constraint in @Model.ModuleConstraints)
+                            {
+                                <tr class="hover:bg-gray-200 hover:text-gray-400 cursor-pointer" onclick="openUrlWithId('/Constraint/Details/', @constraint.ConstraintId);">
+                                    <td>@constraint.Constraint.Name</td>
+                                    <td>@constraint.Constraint.Type</td>
+                                    <td>@constraint.Constraint.Value</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <span>Geen voorwaarden</span>
+                    }
+                </div>
+            </div>
+            <div class="pt-5">
+                <div class="flex justify-between">
+                    <div>
+                        <a asp-controller="Module" asp-action="Edit" asp-route-id="@Model.Id" class="ml-3 inline-flex py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Wijzigen
+                        </a>
+                    </div>
+                    @if (User.IsInRole("ModuleManager"))
+                    {
+                        <form method="post" asp-controller="Module">
+                            <button asp-action="ApproveModule" asp-route-id="@Model.Id" class="ml-3 inline-flex py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Goedkeuren
+                            </button>
+                            <button asp-action="DeclineModule" asp-route-id="@Model.Id" class="ml-3 inline-flex py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Afkeuren
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
