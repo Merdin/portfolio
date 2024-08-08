@@ -1,0 +1,128 @@
+﻿<Application x:Class="PitchPerfectHearingTest.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PitchPerfectHearingTest"
+             xmlns:viewsHearingTest="clr-namespace:PitchPerfectHearingTest.Views.HearingTest"
+             xmlns:viewsAdminDashboard="clr-namespace:PitchPerfectHearingTest.Views.AdminDashboard"
+             xmlns:viewsIntroduction="clr-namespace:PitchPerfectHearingTest.Views.Introduction"
+             xmlns:dialogs="clr-namespace:PitchPerfectHearingTest.Dialogs"
+             xmlns:viewmodelsAdminDashboard="clr-namespace:PitchPerfectHearingTest.ViewModels.AdminDashboard"
+             xmlns:viewmodels="clr-namespace:PitchPerfectHearingTest.ViewModels"
+             xmlns:dialogsYesOrNo="clr-namespace:PitchPerfectHearingTest.Dialogs.DialogYesNo"
+             xmlns:dialogviewsYesOrNo="clr-namespace:PitchPerfectHearingTest.Dialogs.DialogYesNo"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Hearingtest Views -->
+        <DataTemplate DataType="{x:Type viewmodels:HearingTestViewModel}">
+            <viewsHearingTest:HearingTestView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:HearingTestResultViewModel}">
+            <viewsHearingTest:HearingTestResultView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:HearingTestCountdownViewModel}">
+            <viewsHearingTest:HearingTestCountDownView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:HearingTestInteractionViewModel}">
+            <viewsHearingTest:HearingTestInteractionView/>
+        </DataTemplate>
+
+        <!-- Admin Dashboard Views -->
+        <DataTemplate DataType="{x:Type viewmodels:AdminDashboardLoginViewModel}" >
+            <viewsAdminDashboard:AdminDashboardLoginView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdminDashboardPasswordForgottenViewModel}" >
+            <viewsAdminDashboard:AdminDashboardPasswordForgottenView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdminDashboardViewModel}">
+            <viewsAdminDashboard:AdminDashboardView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdminDashboardNavigationViewModel}">
+            <viewsAdminDashboard:AdminDashboardNavigationView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdminDashboardTimeslotsViewModel}">
+            <viewsAdminDashboard:AdminDashboardTimeslotsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdminDashboardDataAnalyseViewModel}">
+            <viewsAdminDashboard:AdminDashboardDataAnalyseView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdminDashboardTimeslotLockViewModel}">
+            <viewsAdminDashboard:AdminDashboardTimeslotLockView/>
+        </DataTemplate>
+
+        <!--Dialogviews-->
+        <DataTemplate DataType="{x:Type dialogsYesOrNo:DialogYesNoViewModel}" >
+            <dialogviewsYesOrNo:DialogYesNoView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodelsAdminDashboard:AdminAppointmentDialogViewModel}">
+            <viewsAdminDashboard:AdminAppointmentDialogView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodelsAdminDashboard:CustAppointmentDialogViewModel}">
+            <viewsAdminDashboard:CustAppointmentDialogView />
+        </DataTemplate>
+
+        <!--Introduction Views-->
+        <DataTemplate DataType="{x:Type viewmodels:IntroductionViewModel}">
+            <viewsIntroduction:IntroductionView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:IntroductionDialogViewModel}" >
+            <viewsIntroduction:IntroductionDialog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:IntroductionDialog1Of4ViewModel}" >
+            <viewsIntroduction:IntroductionDialog1Of4/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:IntroductionDialog2Of4ViewModel}" >
+            <viewsIntroduction:IntroductionDialog2Of4/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:IntroductionDialog3Of4ViewModel}" >
+            <viewsIntroduction:IntroductionDialog3Of4/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:IntroductionDialog4Of4ViewModel}" >
+            <viewsIntroduction:IntroductionDialog4Of4/>
+        </DataTemplate>
+        
+        <!--Appointmentdialogs views-->
+        <DataTemplate DataType="{x:Type viewmodels:AppointmentDialogViewModel}">
+            <dialogs:AppointmentDialog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AppointmentSelectTimeDialogViewModel}">
+            <dialogs:AppointmentSelectTimeDialog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AppointmentAddContactInfoViewModel}">
+            <dialogs:AppointmentAddContactInfoView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AppointmentSuccessViewModel}">
+            <dialogs:AppointmentSuccessView/>
+        </DataTemplate>
+
+        <!-- Style for buttons in HearingTestCountDownView-->
+        <Style x:Key="BtnStyle1" TargetType="Button">
+            <Setter Property="Background" Value="#a5fa93" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#A5FA93"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+       
+    </Application.Resources>
+</Application>

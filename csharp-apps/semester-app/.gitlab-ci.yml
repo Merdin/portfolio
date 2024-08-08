@@ -1,0 +1,14 @@
+stages:
+  - deploy
+
+deploy-test:
+  stage: deploy
+
+  only:
+    - develop
+
+  tags:
+    - testomgeving
+
+  script:
+    - ./start.sh test

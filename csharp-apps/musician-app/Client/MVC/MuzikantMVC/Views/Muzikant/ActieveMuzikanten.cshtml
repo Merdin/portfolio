@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MuzikantenApi.Models.Muzikant>
+
+@{
+    ViewData["Title"] = "ActieveMuzikanten";
+}
+
+<h1>ActieveMuzikanten</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MuzikantId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voornaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Achternaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartJaar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StopJaar)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MuzikantId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voornaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Achternaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartJaar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StopJaar)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

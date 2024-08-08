@@ -1,0 +1,584 @@
+body {
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #75787b;
+    display: flex;
+    justify-content: center;
+}
+
+.link-button {
+    border: none;
+    background: none;
+    color: #192a56;
+    cursor: pointer;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.max-width {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+
+/* Margins */
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-1em {
+    margin-top: 1em;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.my-20 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Width */
+
+.width-100 {
+    width: 100%;
+}
+
+.card-container {
+    max-width: 335px;
+}
+
+
+/* Login form: */
+
+.login-form {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.text-container {
+    margin-top: 1em;
+}
+
+.text-container a {
+    color: #192a56;
+}
+
+h5 {
+    overflow: hidden;
+    text-align: center;
+    font-size: 1em;
+    color: #75787b;
+}
+
+h5:before,
+h5:after {
+    background-color: #75787b;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 25%;
+}
+
+h5:before {
+    right: 0.5em;
+    margin-right: -35%;
+}
+
+h5:after {
+    left: 0.5em;
+    margin-left: -35%;
+}
+
+.compass-button .mdl-button {
+    color: #75787b;
+    background-color: #e9e9e9;
+    border-radius: 20px;
+    moz-border-radius: 20px;
+    webkit-border-radius: 20px;
+}
+
+#pop-up-compass-button {
+    margin-bottom: 20px;
+}
+
+.mdl-textfield__label:after {
+    background-color: #192a56;
+}
+
+.mdl-checkbox__ripple-container .mdl-ripple {
+    background-color: #192a56;
+}
+
+.mdl-checkbox.is-checked .mdl-checkbox__box-outline {
+    border-color: #192a56;
+}
+
+.mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
+    background-color: #192a56;
+}
+
+
+/* Card layout: */
+
+.card {
+    align-self: center;
+    background: white;
+    min-height: 50px;
+    margin-bottom: 30px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    border: 0 solid;
+}
+
+.login-card {
+    padding-left: 0;
+    overflow-x: hidden;
+}
+
+.card main {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.logo {
+    width: 200px;
+}
+
+.buttondiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginbutton {
+    width: 75%
+}
+
+.card footer {
+    font-family: calibri, sans-serif;
+    font-size: 12px;
+    opacity: 0.75;
+    padding-bottom: 2em;
+}
+
+.card footer img {
+    width: 50px;
+    height: 20px;
+}
+
+@media(max-width: 575px) {
+    .no-account {
+        padding: 2em 0px 1em 0px;
+    }
+    .textfield {
+        justify-content: center;
+    }
+    .remember-login {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .remember-checkbox {
+        display: inline-flex;
+    }
+    .buttondiv .text-container {
+        text-align: center;
+        flex-grow: 1;
+        align-self: c20enter;
+    }
+    .loginbutton {
+        width: 334px;
+    }
+    .mdl-grid {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    .copyright {
+        padding-top: 0px;
+    }
+    .watermark {
+        display: none;
+    }
+}
+
+@media(min-width: 576px) {
+    .card {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        width: 30em;
+    }
+    body {
+        background-color: #e9e9e9;
+    }
+    .textfield,
+    {
+        padding-left: 45px;
+    }
+    .mdl-textfield__input {
+        flex-grow: 1;
+    }
+    .remember-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+/* To make the Up watermark proportional to the width and height of the screen. See template for the code of the watermark */
+
+@media(max-height: 1200px) and (max-width: 750px) {
+    .watermerk {
+        height: 30%;
+    }
+}
+
+header img {
+    width: 200px;
+    padding-top: 3em;
+}
+
+header.mdl-card__title {
+    display: block;
+}
+
+header.mdl-card__title .mdl-cell {
+    text-align: center;
+}
+
+
+/* Div that only shows at first login with the alert that the user has to use the Compass login option */
+
+.hide-me {
+    display: none;
+}
+
+.nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.no-account:hover {
+    color: #75787b;
+}
+
+.show-dialog {
+    color: #75787b;
+    text-decoration: none;
+}
+
+.textfield,
+.buttonrow {
+    display: flex;
+    justify-content: center;
+}
+
+.person,
+.email,
+.lock {
+    margin-top: 20px;
+}
+
+.material-icons {
+    vertical-align: middle;
+    padding: 0 5px;
+}
+
+#forgot-password {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#forgot-password a {
+    color: #192a56;
+    text-decoration: none;
+}
+
+.oranje_tekst {
+    color: #192a56;
+}
+
+.algemene_voorwaarden {
+    text-decoration: underline;
+    opacity: 0.75;
+    color: #75787b;
+}
+
+.algemene_voorwaarden:hover {
+    color: #192a56;
+}
+
+.mdl-button--accent.mdl-button--accent.mdl-button--raised {
+    background-color: #192a56;
+}
+
+.mdl-dialog__content p {
+    font-size: 16px;
+    color: #75787b;
+}
+
+.toegang-geven {}
+
+.toegang-tekst p {}
+
+.toegang-tekst ul li {}
+
+.toegang-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.weigeren-button {
+    border: 1px solid #75787b;
+    color: #192a56;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.toestaan-button {
+    color: white;
+    background-color: #192a56;
+}
+
+
+/* Update emailadress */
+
+.widebutton {
+    width: 293px;
+}
+
+
+/* New account message panel: */
+
+#new-account {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#term-and-condition-buttons {
+    display: flex;
+}
+
+#term-and-condition-buttons .button-container {
+    flex: 1;
+}
+
+#term-and-condition-buttons .button-container {
+    margin-bottom: 10px;
+}
+
+@media(min-width: 575px) {
+    #term-and-condition-buttons .button-container:first-child {
+        margin-right: 10px;
+    }
+}
+
+
+/* Row with two buttons side by side: */
+
+@media(max-width: 575px) {
+    #term-and-condition-buttons {
+        display: block;
+    }
+}
+
+#term-and-condition-buttons button {
+    width: 100%;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-row .buttons {
+    display: flex;
+    flex-grow: 1;
+}
+
+.buttons-row .button-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.buttons-row .button-container button {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin-left: 4px;
+}
+
+.buttons-row .button-container:first-child button {
+    margin-left: 0px;
+    margin-right: 4px;
+}
+
+
+/* Terms and conditions page: */
+
+#terms .big-button {
+    margin: 3em 0;
+    text-align: center;
+}
+
+#terms .big-button a {
+    width: 150px;
+    height: 150px;
+    background-color: #192a56;
+}
+
+#terms .big-button a .material-icons {
+    transform: translate(-50px, -50px);
+    line-height: 100px;
+    width: 100px;
+    font-size: 100px;
+}
+
+#terms-dialog {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    width: 90%;
+    height: 100%;
+    padding: 0;
+}
+
+#terms-dialog .mdl-dialog__content p,
+#terms-dialog .mdl-dialog__content ul,
+#terms-dialog .mdl-dialog__content ol {
+    font-size: 12px;
+}
+
+#terms-dialog .mdl-dialog__content h1 {
+    font-size: 24px;
+}
+
+#terms-dialog .mdl-dialog__content h2 {
+    font-size: 20px;
+}
+
+#terms-dialog .mdl-dialog__actions {
+    display: block;
+    position: absolute;
+    padding: 5px 15px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    text-align: right;
+    border-top: solid 1px #75787b;
+}
+
+#terms-dialog .mdl-dialog__content {
+    padding: 15px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 50px;
+    overflow: auto;
+}
+
+@media(max-width: 575px) {
+    #terms-dialog {
+        width: 100%;
+    }
+}
+
+
+/* Alerts: */
+
+.alert {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #de3226;
+}
+
+
+/* Progress bar  */
+
+.mdl-progress {
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.mdl-progress-orange>.progressbar {
+    color: #75787b;
+    background-color: #192a56;
+}
+
+
+/* The 'Gebruikersnaam vergeten' pop up of the 'Wachtwoord vergeten' page at login */
+
+
+/* #forgotten-username {
+  margin-top: 20px;
+} */
+
+.back_to_login {
+    align-items: center;
+}
+
+
+/* The reset password page */
+
+.confirm-pw-button {
+    display: flex;
+    justify-content: center;
+}
+
+#kc-reset-password-form .emailfield {
+    margin-bottom: 10px;
+}
+
+button.ghost:hover,
+button.ghost:focus,
+button.ghost:active {
+    background-color: transparent;
+}
+
+button.ghost {
+    color: #192a56;
+    border: 1px solid #a6a6a6;
+    background-color: inherit;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.center-block {
+    display: block;
+    margin: 0 auto;
+}

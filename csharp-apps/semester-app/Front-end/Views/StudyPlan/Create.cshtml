@@ -1,0 +1,312 @@
+﻿@page
+@using Library.Models
+@{
+    ViewBag.Title = "Module aanmaken";
+}
+
+<div class="drag-and-drop flex" x-data="{ adding: false, removing: false }">
+<div class="-my-9" style="padding-top: 40px;">
+    <div class="py-1 align-middle inline-block sm:px-1 lg:px-1"></div>
+    <div class="align-middle inline-block" id="studyPlan">
+        <div class="shadow border-b border-gray-200 sm:rounded-lg p-2">
+            <table class="divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                <tr>
+                    <th scope="col"
+                        class="px-2 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+
+                    </th>
+                    <th scope="col"
+                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Periode 1
+                    </th>
+
+                    <th scope="col"
+                        class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Periode 2
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                    <td class="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <span>Jaar 1</span>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <div style=" min-height: 100px;min-width: 200px;background: rgb(28, 149, 255);" class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_ExploringIt_items">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Smart Things / Web Application</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <ul id="ExploringItUL" style="min-height: 100px; min-width: 200px;"
+                                class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_ExploringIt_items"
+                                :class="{ 'drag-and-drop_ExploringIt_items--adding': adding }"
+                                x-on:drop="adding = false"
+                                x-on:drop.prevent=" const target = event.target.closest('ul'); var lis = target.getElementsByTagName('li'); var firstElementChild = lis.length ? lis[0] : null; if( firstElementChild != null ) { const targetUL = document.querySelector('ul.ExploringIt'); targetUL.appendChild(firstElementChild); target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } const element = document.getElementById(event.dataTransfer.getData('text/plain')); if(element.classList.contains('ExploringIt')){ target.appendChild(element); target.style.backgroundColor = element.style.backgroundColor; element.classList.remove('border-gray-200');  }"
+                                x-on:dragover.prevent="adding = true" x-on:dragleave.prevent="adding = false">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Exploring IT</h3>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 20px"></tr>
+                <tr>
+                    <td class="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <span>Jaar 2</span>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <ul id="ProfileChoiceOneUL" style="min-height: 100px; min-width: 200px; "
+                                class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_Profielkeuze_items"
+                                :class="{ 'drag-and-drop_Profielkeuze_items--adding': adding }"
+                                x-on:drop="adding = false"
+                                x-on:drop.prevent=" const target = event.target.closest('ul'); var lis = target.getElementsByTagName('li'); var firstElementChild = lis.length ? lis[0] : null; if( firstElementChild != null ) {const targetUL = document.querySelector('ul.Profielkeuze'); targetUL.appendChild(firstElementChild); target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200');} const element = document.getElementById(event.dataTransfer.getData('text/plain')); if(element.classList.contains('Profielkeuze')){ target.appendChild(element); target.style.backgroundColor = element.style.backgroundColor; element.classList.remove('border-gray-200'); } "
+                                x-on:dragover.prevent="adding = true" x-on:dragleave.prevent="adding = false">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Profielkeuze 1</h3>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <ul id="ProfileChoiceTwoUL" style="min-height: 100px; min-width: 200px;"
+                                class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_Profielkeuze_items"
+                                :class="{ 'drag-and-drop_Profielkeuze_items--adding': adding }"
+                                x-on:drop="adding = false"
+                                x-on:drop.prevent=" const target = event.target.closest('ul'); var lis = target.getElementsByTagName('li'); var firstElementChild = lis.length ? lis[0] : null; if( firstElementChild != null ) {const targetUL = document.querySelector('ul.Profielkeuze'); targetUL.appendChild(firstElementChild); target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200');} const element = document.getElementById(event.dataTransfer.getData('text/plain')); if(element.classList.contains('Profielkeuze')){ target.appendChild(element); target.style.backgroundColor = element.style.backgroundColor; element.classList.remove('border-gray-200'); } "
+                                x-on:dragover.prevent="adding = true" x-on:dragleave.prevent="adding = false">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Profielkeuze 2</h3>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 20px"></tr>
+                <tr>
+                    <td class="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <span>Jaar 3</span>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <ul id="FreeChoiceOneUL" style="min-height: 100px; min-width: 200px; "
+                                class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_vrijekeuze_items"
+                                :class="{ 'drag-and-drop_vrijekeuze_items--adding': adding }"
+                                x-on:drop="adding = false"
+                                x-on:drop.prevent=" const target = event.target.closest('ul'); var lis = target.getElementsByTagName('li'); var firstElementChild = lis.length ? lis[0] : null; if( firstElementChild != null ) { if(firstElementChild.classList.contains('VerdiependeNiveau3')) { const targetUL = document.querySelector('ul.VerdiependeNiveau3'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('VerbredendeNiveau3')) { const targetUL = document.querySelector('ul.VerbredendeNiveau3'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('Overig')) { const targetUL = document.querySelector('ul.Overig'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('Reperatiesemester')) { const targetUL = document.querySelector('ul.Reperatiesemester'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } } const element = document.getElementById(event.dataTransfer.getData('text/plain')); if(element.classList.contains('VerdiependeNiveau3') || element.classList.contains('VerbredendeNiveau3') || element.classList.contains('Overig') || element.classList.contains('Reperatiesemester')){ target.appendChild(element); target.style.backgroundColor = element.style.backgroundColor; element.classList.remove('border-gray-200'); } "
+                                x-on:dragover.prevent="adding = true" x-on:dragleave.prevent="adding = false">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Vrije keuze 1</h3>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <ul id="FreeChoiceTwoUL" style="min-height: 100px; min-width: 200px; "
+                                class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_vrijekeuze_items"
+                                :class="{ 'drag-and-drop_vrijekeuze_items--adding': adding }"
+                                x-on:drop="adding = false"
+                                x-on:drop.prevent=" const target = event.target.closest('ul'); var lis = target.getElementsByTagName('li'); var firstElementChild = lis.length ? lis[0] : null; if( firstElementChild != null ) { if(firstElementChild.classList.contains('VerdiependeNiveau3')) { const targetUL = document.querySelector('ul.VerdiependeNiveau3'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('VerbredendeNiveau3')) { const targetUL = document.querySelector('ul.VerbredendeNiveau3'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('Overig')) { const targetUL = document.querySelector('ul.Overig'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('Reperatiesemester')) { const targetUL = document.querySelector('ul.Reperatiesemester'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } } const element = document.getElementById(event.dataTransfer.getData('text/plain')); if(element.classList.contains('VerdiependeNiveau3') || element.classList.contains('VerbredendeNiveau3') || element.classList.contains('Overig') || element.classList.contains('Reperatiesemester')){ target.appendChild(element); target.style.backgroundColor = element.style.backgroundColor; element.classList.remove('border-gray-200'); } "
+                                x-on:dragover.prevent="adding = true" x-on:dragleave.prevent="adding = false">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Vrije keuze 2</h3>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 20px"></tr>
+                <tr>
+                    <td class="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <span>Jaar 4</span>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <ul id="FreeChoiceThreeUL" style="min-height: 100px; min-width: 200px; "
+                                class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_vrijekeuze_items"
+                                :class="{ 'drag-and-drop_vrijekeuze_items--adding': adding }"
+                                x-on:drop="adding = false"
+                                x-on:drop.prevent=" const target = event.target.closest('ul'); var lis = target.getElementsByTagName('li'); var firstElementChild = lis.length ? lis[0] : null; if( firstElementChild != null ) { if(firstElementChild.classList.contains('VerdiependeNiveau3')) { const targetUL = document.querySelector('ul.VerdiependeNiveau3'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('VerbredendeNiveau3')) { const targetUL = document.querySelector('ul.VerbredendeNiveau3'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('Overig')) { const targetUL = document.querySelector('ul.Overig'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } else if(firstElementChild.classList.contains('Reperatiesemester')) { const targetUL = document.querySelector('ul.Reperatiesemester'); targetUL.appendChild(firstElementChild);  target.style.backgroundColor = 'white'; firstElementChild.classList.add('border-gray-200'); } } const element = document.getElementById(event.dataTransfer.getData('text/plain')); if(element.classList.contains('VerdiependeNiveau3') || element.classList.contains('VerbredendeNiveau3') || element.classList.contains('Overig') || element.classList.contains('Reperatiesemester')){ target.appendChild(element); target.style.backgroundColor = element.style.backgroundColor; element.classList.remove('border-gray-200'); } "
+                                x-on:dragover.prevent="adding = true" x-on:dragleave.prevent="adding = false">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Vrije keuze 3</h3>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <div class="px-3 py-3 drag-and-drop__container drag-and-drop__container--to">
+                            <div style="min-height: 100px; min-width: 200px; background: rgb(28, 149, 255);" class="p-4 h-full flex items-center border-gray-200 border rounded-lg drag-and-drop_ExploringIt_items">
+                                <h3 style="color: rgb(0, 0, 139);" class="drag-and-drop__title">Afstuderen</h3>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="-my-3" style="padding-top: 40px; padding-left: 40px;">
+    <div class="py-2 align-middle inline-block sm:px-2 lg:px-2">
+        <div class="drag-and-drop shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+             x-data="{ adding: false, removing: false }">
+            <div class="drag-and-drop__container drag-and-drop__container--from">
+
+                @if (ViewBag.ExploringIt != null)
+                {
+                    <h3 class="drag-and-drop__title">Exploring IT</h3>
+                    <ul class="drag-and-drop_ExploringIt_items ExploringIt"
+                        :class="{ 'drag-and-drop_ExploringIt_items--removing': removing }" x-on:drop="removing = false"
+                        x-on:drop.prevent="const target = event.target.closest('ul');const element = document.getElementById(event.dataTransfer.getData('text/plain'));target.appendChild(element);"
+                        x-on:dragover.prevent="removing = true" x-on:dragleave.prevent="removing = false">
+                        @for (int i = 0; i < ViewBag.ExploringIt.Count; i++)
+                        {
+                            <li id="item-ExploringIt-@i" @GetSomeString(@ViewBag.ExploringIt[i])
+                                style="color: white; background: rgb(219, 112, 147);"
+                                data-learning-unit-id="@ViewBag.ExploringIt[i].Id"
+                                class="ExploringIt p-4 h-full flex items-center border-gray-200 rounded-lg drag-and-drop_ExploringIt_items drag-and-drop_ExploringIt_item"
+                                :class="{ 'drag-and-drop_ExploringIt_item--dragging': dragging }"
+                                x-on:dragstart.self=" dragging = true;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain', event.target.id);"
+                                x-on:dragend="dragging = false" x-data="{ dragging: false }" draggable="true">
+                                @ViewBag.ExploringIt[i].Title
+                            </li>
+                        }
+                    </ul>
+                }
+                @if (ViewBag.Profielkeuze != null)
+                {
+                    <h3 class="drag-and-drop__title">Profielkeuze</h3>
+                    <ul class="drag-and-drop_Profielkeuze_items Profielkeuze"
+                        :class="{ 'drag-and-drop_Profielkeuze_items--removing': removing }" x-on:drop="removing = false"
+                        x-on:drop.prevent="const target = event.target.closest('ul');const element = document.getElementById(event.dataTransfer.getData('text/plain'));target.appendChild(element);"
+                        x-on:dragover.prevent="removing = true" x-on:dragleave.prevent="removing = false">
+                        @for (int i = 0; i < ViewBag.Profielkeuze.Count; i++)
+                        {
+                            <li id="item-Profielkeuze-@i" @GetSomeString(@ViewBag.Profielkeuze[i])
+                                style="color: white; background: rgb(255, 69, 0);"
+                                data-learning-unit-id="@ViewBag.Profielkeuze[i].Id"
+                                class="Profielkeuze p-4 h-full flex items-center border-gray-200 rounded-lg drag-and-drop_Profielkeuze_items drag-and-drop_Profielkeuze_item"
+                                :class="{ 'drag-and-drop_Profielkeuze_item--dragging': dragging }"
+                                x-on:dragstart.self=" dragging = true;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain', event.target.id);"
+                                x-on:dragend="dragging = false" x-data="{ dragging: false }" draggable="true">
+                                @ViewBag.Profielkeuze[i].Title
+                            </li>
+                        }
+                    </ul>
+                }
+                @if (ViewBag.VerdiependeNiveau3 != null)
+                {
+                    <h3 class="drag-and-drop__title">Verdiepende (Niveau 3)</h3>
+                    <ul class="drag-and-drop_VerdiependeNiveau3_items VerdiependeNiveau3"
+                        :class="{ 'drag-and-drop_VerdiependeNiveau3_items--removing': removing }"
+                        x-on:drop="removing = false"
+                        x-on:drop.prevent="const target = event.target.closest('ul');const element = document.getElementById(event.dataTransfer.getData('text/plain'));target.appendChild(element);"
+                        x-on:dragover.prevent="removing = true" x-on:dragleave.prevent="removing = false">
+                        @for (int i = 0; i < ViewBag.VerdiependeNiveau3.Count; i++)
+                        {
+                            <li id="item-VerdiependeNiveau3-@i" @GetSomeString(@ViewBag.VerdiependeNiveau3[i])
+                                style="color: white; background: rgb(255, 20, 147) "
+                                data-learning-unit-id="@ViewBag.VerdiependeNiveau3[i].Id"
+                                class="VerdiependeNiveau3 p-4 h-full flex items-center border-gray-200 rounded-lg drag-and-drop_VerdiependeNiveau3_items drag-and-drop_VerdiependeNiveau3_item"
+                                :class="{ 'drag-and-drop_VerdiependeNiveau3_item--dragging': dragging }"
+                                x-on:dragstart.self=" dragging = true;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain', event.target.id);"
+                                x-on:dragend="dragging = false" x-data="{ dragging: false }" draggable="true">
+                                @ViewBag.VerdiependeNiveau3[i].Title
+                            </li>
+                        }
+                    </ul>
+                }
+                @if (ViewBag.VerbredendeNiveau3 != null)
+                {
+                    <h3 class="drag-and-drop__title">Verbredende (Niveau 3)</h3>
+                    <ul class="drag-and-drop_VerbredendeNiveau3_items VerbredendeNiveau3"
+                        :class="{ 'drag-and-drop_VerbredendeNiveau3_items--removing': removing }"
+                        x-on:drop="removing = false"
+                        x-on:drop.prevent="const target = event.target.closest('ul');const element = document.getElementById(event.dataTransfer.getData('text/plain'));target.appendChild(element);"
+                        x-on:dragover.prevent="removing = true" x-on:dragleave.prevent="removing = false">
+                        @for (int i = 0; i < ViewBag.VerbredendeNiveau3.Count; i++)
+                        {
+                            <li id="item-VerbredendeNiveau3-@i" @GetSomeString(@ViewBag.VerbredendeNiveau3[i])
+                                style=" color: white; background:rgb(50, 205, 50);"
+                                data-learning-unit-id="@ViewBag.VerbredendeNiveau3[i].Id"
+                                class="VerbredendeNiveau3 p-4 h-full flex items-center border-gray-200 rounded-lg drag-and-drop_VerbredendeNiveau3_items drag-and-drop_VerbredendeNiveau3_item"
+                                :class="{ 'drag-and-drop_VerbredendeNiveau3_item--dragging': dragging }"
+                                x-on:dragstart.self=" dragging = true;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain', event.target.id);"
+                                x-on:dragend="dragging = false" x-data="{ dragging: false }" draggable="true">
+                                @ViewBag.VerbredendeNiveau3[i].Title
+                            </li>
+                        }
+                    </ul>
+                }
+
+                @if (ViewBag.Overig != null)
+                {
+                    <h3 class="drag-and-drop__title">Overig</h3>
+                    <ul class="drag-and-drop_Overig_items Overig"
+                        :class="{ 'drag-and-drop_Overig_items--removing': removing }" x-on:drop="removing = false"
+                        x-on:drop.prevent="const target = event.target.closest('ul');const element = document.getElementById(event.dataTransfer.getData('text/plain'));target.appendChild(element);"
+                        x-on:dragover.prevent="removing = true" x-on:dragleave.prevent="removing = false">
+                        @for (int i = 0; i < ViewBag.Overig.Count; i++)
+                        {
+                            <li id="item-Overig-@i" @GetSomeString(@ViewBag.Overig[i])
+                                style=" color: white; background: rgb(246, 199, 79);"
+                                data-learning-unit-id="@ViewBag.Overig[i].Id"
+                                class="Overig p-4 h-full flex items-center border-gray-200 rounded-lg drag-and-drop_Overig_items drag-and-drop_Overig_item"
+                                :class="{ 'drag-and-drop_Overig_item--dragging': dragging }"
+                                x-on:dragstart.self=" dragging = true;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain', event.target.id);"
+                                x-on:dragend="dragging = false" x-data="{ dragging: false }" draggable="true">
+                                @ViewBag.Overig[i].Title
+                            </li>
+                        }
+                    </ul>
+                }
+                @if (ViewBag.Reperatiesemester != null)
+                {
+                    <h3 class="drag-and-drop__title">Reperatiesemester</h3>
+                    <ul class="drag-and-drop_Reperatiesemester_items Reperatiesemester"
+                        :class="{ 'drag-and-drop_Reperatiesemester_items--removing': removing }"
+                        x-on:drop="removing = false"
+                        x-on:drop.prevent="const target = event.target.closest('ul');const element = document.getElementById(event.dataTransfer.getData('text/plain'));target.appendChild(element);"
+                        x-on:dragover.prevent="removing = true" x-on:dragleave.prevent="removing = false">
+                        @for (int i = 0; i < ViewBag.Reperatiesemester.Count; i++)
+                        {
+                            <li id="item-Reperatiesemester-@i" @GetSomeString(@ViewBag.Reperatiesemester[i])
+                                style="color: white; background: rgb(114, 114, 114);"
+                                data-learning-unit-id="@ViewBag.Reperatiesemester[i].Id"
+                                class="Reperatiesemester p-4 h-full flex items-center border-gray-200 rounded-lg drag-and-drop_Overig_items drag-and-drop_Reperatiesemester_item"
+                                :class="{ 'drag-and-drop_Reperatiesemester_item--dragging': dragging }"
+                                x-on:dragstart.self=" dragging = true;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain', event.target.id);"
+                                x-on:dragend="dragging = false" x-data="{ dragging: false }" draggable="true">
+                                @ViewBag.Reperatiesemester[i].Title
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="px-4 mt-10 sm:px-6">
+    <button id="createStudyPlan" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Aanmaken
+    </button>
+</div>
+<script src="~/js/studyplan.js"></script>
+
+@functions {
+
+    public string GetSomeString(LearningUnit item)
+    {
+        var stringtest = "";
+        foreach (var semesterModule in item.LearningUnitModules)
+        {
+            foreach (var ModuleConstraints in semesterModule.Module.ModuleConstraints)
+            {
+                stringtest = stringtest + string.Format("data-constraint-type={0} ", ModuleConstraints.Constraint.Type);
+                stringtest = stringtest + string.Format("data-constraint-{0}={1} ", ModuleConstraints.Constraint.Type,
+                    ModuleConstraints.Constraint.Value);
+            }
+        }
+
+        return stringtest;
+    }
+
+}

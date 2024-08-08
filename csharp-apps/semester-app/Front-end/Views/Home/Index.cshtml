@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Welkom";
+}
+
+<div class="text-center my-auto mx-auto prose">
+    <h1>Welkom bij StudyM8</h1>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Met StudyM8 kan je eenvoudig je eigen studieplan opzetten. Je krijgt direct te zien of de modules die je hebt gekozen passen binnen je huidige leerweg en of deze voor voldoende studiepunten zorgen.</p>
+        <p>Kom je er niet uit? Neem dan contact op met je studentbegeleider.</p>
+        <br/>
+        <p>Kies een item uit het menu aan de linkerkant om van start te gaan.</p>
+    }
+    else
+    {
+        <p>Klik op de knop "Log in" aan de linkerkant om te beginnen.</p>
+    }
+</div>

@@ -1,0 +1,56 @@
+version: "3.1"
+
+services:
+  front-end:
+    build:
+      context: "../"
+      dockerfile: "./Front-end/Dockerfile"
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Production"
+    networks:
+      - proxy
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.studym8.entrypoints=http"
+      - "traefik.http.routers.studym8.rule=Host(`test.studym8.nl`)"
+      - "traefik.http.middlewares.studym8-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.studym8-auth.basicauth.users=studym8:$$2y$$05$$VvSjyEoghrvQEP59LJ2j5uvb1QDY3eSFaI1MsJqHSfnSSsBHRx1WW"
+      - "traefik.http.routers.studym8.middlewares=studym8-https-redirect"
+      - "traefik.http.routers.studym8-secure.entrypoints=https"
+      - "traefik.http.routers.studym8-secure.rule=Host(`test.studym8.nl`)"
+      - "traefik.http.routers.studym8-secure.tls=true"
+      - "traefik.http.routers.studym8-secure.tls.certresolver=http"
+      - "traefik.http.routers.studym8-secure.service=studym8"
+      - "traefik.http.services.studym8.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+
+  back-end:
+    build:
+      context: "../"
+      dockerfile: "./Back-end/Dockerfile"
+    networks:
+      - default
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Production"
+
+  traefik:
+    image: traefik:v2.0
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.yml:/traefik.yml:ro
+      - ../../data/traefik/acme.json:/acme.json
+
+networks:
+  proxy:
+    external: true
+  default:

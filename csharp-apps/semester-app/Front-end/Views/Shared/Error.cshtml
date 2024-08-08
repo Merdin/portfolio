@@ -1,0 +1,18 @@
+@model Library.Models.ErrorViewModel
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">Oeps. Daar gaat wat mis</h1>
+<h2 class="text-danger">Geen paniek! Dit is niet het einde van de wereld.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<p>
+    <strong>Helaas ging er iets mis. Zou je ons kunnen vertellen wat je hebt gedaan voordat je deze melding kreeg? Stuur een mail naar support@studym8.nl, dan helpen we je zo snel mogelijk. Vermeld indien mogelijk het bovenstaande Request ID</strong>
+</p>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="PitchPerfectHearingTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PitchPerfectHearingTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40px" />
+        </Grid.RowDefinitions>
+
+        <ContentControl Content="{Binding SelectedViewModel}" Grid.Column="0" Grid.Row="0"/>
+        <Grid Grid.Column="0" Grid.Row="1" Background="#74b9ff">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Background="Transparent" BorderThickness="0" Width="50" HorizontalAlignment="Left" Command="{Binding GoToHome}">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="./Images/home.png" Width="20" Height="20"/>
+                    <TextBlock Text="Home" FontSize="10" Foreground="#fff"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="1" Background="Transparent" BorderThickness="0" Width="50" HorizontalAlignment="Right" Command="{Binding GoToAdmin}" >
+                <StackPanel Orientation="Vertical">
+                    <Image Source="./Images/settings.png" Width="20" Height="20"/>
+                    <TextBlock Text="Admin" FontSize="10" Foreground="#fff"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

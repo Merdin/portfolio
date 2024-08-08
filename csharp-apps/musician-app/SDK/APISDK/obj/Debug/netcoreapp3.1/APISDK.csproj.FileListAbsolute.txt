@@ -1,0 +1,62 @@
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.deps.json
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfoInputs.cache
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfo.cs
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csproj.CoreCompileInputs.cache
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\Kluitenberg\Desktop\Tentamen\APISDK\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.deps.json
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csprojAssemblyReference.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfoInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfo.cs
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csproj.CoreCompileInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\bin\Debug\netcoreapp3.1\APISDK.deps.json
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\bin\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\obj\Debug\netcoreapp3.1\APISDK.csprojAssemblyReference.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfoInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfo.cs
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\obj\Debug\netcoreapp3.1\APISDK.csproj.CoreCompileInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\obj\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Schaakclubuitslagen\APISDK\obj\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.deps.json
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfoInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfo.cs
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csproj.CoreCompileInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Dev\Practice Exams\Taken\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csprojAssemblyReference.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.deps.json
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfoInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfo.cs
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csproj.CoreCompileInputs.cache
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Windesheim\Tentamens\Server\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csprojAssemblyReference.cache
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.deps.json
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csprojAssemblyReference.cache
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfoInputs.cache
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfo.cs
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csproj.CoreCompileInputs.cache
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\rkluitenberg\Desktop\Demo\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.deps.json
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\bin\Debug\netcoreapp3.1\APISDK.pdb
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csprojAssemblyReference.cache
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfoInputs.cache
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.AssemblyInfo.cs
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.csproj.CoreCompileInputs.cache
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.dll
+C:\Users\merdin\Documents\Tentamen\SDK\APISDK\obj\Debug\netcoreapp3.1\APISDK.pdb

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MuzikantenApi.Models.Instrument>
+
+@{
+    ViewData["Title"] = "Top3";
+}
+
+<h1>Top3</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InstrumentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Naam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bijnaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Waarde)
+            </th>
+            <th>
+                Muzikant
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstrumentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bijnaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Waarde)
+            </td>
+            <td>
+                @Html.Raw($"{item.Muzikant.Achternaam}, {item.Muzikant.Voornaam}")
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

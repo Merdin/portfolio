@@ -1,0 +1,48 @@
+﻿@model MuzikantenApi.Models.Muzikant
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Muzikant</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MuzikantId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MuzikantId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Voornaam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Voornaam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Achternaam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Achternaam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartJaar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartJaar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StopJaar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StopJaar)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.MuzikantId }) |
+    <a asp-action="Index">Back to List</a>
+</div>
